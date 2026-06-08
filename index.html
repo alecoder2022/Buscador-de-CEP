@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <style>
+      .form-control::placeholder {
+        color: #a2a0a0;
+        opacity: 1;
+      }
+    </style>
+    <title>Buscador de CEP</title>
+  </head>
+
+  <body>
+    <div
+      class="container mt-5 p-4 border rounded bg-light shadow"
+      style="max-width: 768px"
+    >
+      <h3 class="text-center text-success my-3">Buscador de CEP</h3>
+      <br />
+
+      <div class="container p-0">
+        <div class="row g-3">
+          <!-- Início dos formulários -->
+          <div class="col-md-2 mt-2 mx-auto">
+            <label class="form-label">UF (Estado)</label>
+            <select
+              id="uf"
+              class="form-select"
+              aria-label="Default select example"
+            >
+              <option selected>RJ</option>
+              <option value="AC">AC</option>
+              <option value="AL">AL</option>
+              <option value="AP">AP</option>
+              <option value="AM">AM</option>
+              <option value="BA">BA</option>
+              <option value="CE">CE</option>
+              <option value="DF">DF</option>
+              <option value="ES">ES</option>
+              <option value="GO">GO</option>
+              <option value="MA">MA</option>
+              <option value="MT">MT</option>
+              <option value="MS">MS</option>
+              <option value="MG">MG</option>
+              <option value="PA">PA</option>
+              <option value="PB">PB</option>
+              <option value="PR">PR</option>
+              <option value="PE">PE</option>
+              <option value="PI">PI</option>
+              <option value="RN">RN</option>
+              <option value="RS">RS</option>
+              <option value="RO">RO</option>
+              <option value="RR">RR</option>
+              <option value="SC">SC</option>
+              <option value="SP">SP</option>
+              <option value="SE">SE</option>
+              <option value="TO">TO</option>
+            </select>
+          </div>
+          <div class="col-md-8 mt-2 mx-auto">
+            <label class="form-label">Cidade</label>
+            <input
+              type="text"
+              id="cidade"
+              class="form-control"
+              placeholder="Ex: Niterói"
+            />
+          </div>
+          <div class="col-md-11 mt-2 mx-auto">
+            <label class="form-label">Rua/Logradouro</label>
+            <input
+              type="text"
+              id="rua"
+              class="form-control"
+              placeholder="Ex: Rua Araribóia"
+            />
+          </div>
+          <br />
+
+          <!-- Seção de botões: -->
+          <div class="row justify-content-center g-2 mt-4">
+            <div class="col-md-5 mt-3">
+              <button
+                class="btn btn-success w-100 mx-2"
+                type="button"
+                onclick="buscarCep()"
+              >
+                Buscar
+              </button>
+            </div>
+            <div class="col-md-5 my-3">
+              <button
+                class="btn btn-warning w-100 mx-2"
+                type="button"
+                onclick="limparCampos()"
+              >
+                Limpar
+              </button>
+            </div>
+          </div>
+
+          <p id="titulo" class="text-center text-primary"></p>
+
+        </div>
+
+        <div id="div-dinamica" class="hstack gap-3 justify-content-center d-none"> 
+          <h3 class="text-center text-primary" id="resultado"></h3>
+
+          <!-- Botão de clipboard -->
+          <button
+            type="button"
+            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copiar CEP"
+            id="botao-copiar"
+            onclick="copiarTexto()"
+            style="background: none; border: none; cursor: pointer"
+          >
+            <svg 
+              class="text-primary"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="4 2 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="6" y="4" width="12" height="16" rx="2" />
+              <path d="M9 4h6v3H9z" />
+            </svg>
+          </button>
+        </div>
+        
+        <p id="rodape" class="text-center text-muted mt-4"></p>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    >
+  </script>
+
+  </body>
+</html>
